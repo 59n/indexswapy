@@ -1,6 +1,30 @@
-.DS_Store
-node_modules/
+# Development environment
+/dev/
+*.dev.js
+*.test.js
+test-convert.js
+
+# Dependencies
+/node_modules/
+
+# Environment variables
 .env
-*.log
+.env.local
+.env.*.local
+
+# IDE and editor files
+.idea/
 .vscode/
-.idea/ 
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+/dist/
+/build/ 
