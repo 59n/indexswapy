@@ -37,7 +37,7 @@ export class IndexSwapy {
         return "http://127.0.0.1:8888/api/ratios"
       }
     }
-    return "https://deploy-preview-10--indexswapy-backend.netlify.app/.netlify/functions/indexswapy/api/ratios"
+    return "https://indexswapy-backend.netlify.app/.netlify/functions/indexswapy/api/ratios"
   }
 
   isValidRatio(value: number) {
