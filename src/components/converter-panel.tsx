@@ -45,18 +45,19 @@ export function ConverterPanel({
   marketId: string
 }) {
   const market = MARKET_TABS.find((tab) => tab.id === marketId) ?? MARKET_TABS[0]
+  const [prevMarketId, setPrevMarketId] = React.useState(marketId)
   const [pairId, setPairId] = React.useState<string>(market.pairs[0].id)
   const [rawInput, setRawInput] = React.useState("")
   const [error, setError] = React.useState<string | null>(null)
   const [rows, setRows] = React.useState<ResultRow[]>([])
   const [busy, setBusy] = React.useState(false)
 
-  React.useEffect(() => {
-    const next = MARKET_TABS.find((tab) => tab.id === marketId) ?? MARKET_TABS[0]
-    setPairId(next.pairs[0].id)
+  if (prevMarketId !== marketId) {
+    setPrevMarketId(marketId)
+    setPairId(market.pairs[0].id)
     setRows([])
     setError(null)
-  }, [marketId])
+  }
 
   const pair = market.pairs.find((item) => item.id === pairId) ?? market.pairs[0]
 
